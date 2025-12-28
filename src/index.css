@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* ===== TYPOGRAPHY FLUID SYSTEM ===== */
+    /* Minimum font size (user adjustable: 12-24px, default: 14px) */
+    --font-size-min: 14px;
+    
+    /* Fluid typography scale using clamp() */
+    --font-size-xs: var(--font-size-min);
+    --font-size-sm: clamp(var(--font-size-min), 2.2vw, calc(var(--font-size-min) + 2px));
+    --font-size-base: clamp(var(--font-size-min), 2.5vw, calc(var(--font-size-min) + 4px));
+    --font-size-lg: clamp(var(--font-size-min), 3vw, calc(var(--font-size-min) + 6px));
+    --font-size-xl: clamp(var(--font-size-min), 3.5vw, calc(var(--font-size-min) + 8px));
+    --font-size-2xl: clamp(var(--font-size-min), 4vw, calc(var(--font-size-min) + 12px));
+    --font-size-3xl: clamp(var(--font-size-min), 5vw, calc(var(--font-size-min) + 18px));
+    --font-size-4xl: clamp(var(--font-size-min), 6vw, calc(var(--font-size-min) + 24px));
+    
+    /* Responsive spacing */
+    --spacing-responsive-xs: clamp(0.25rem, 1vw, 0.5rem);
+    --spacing-responsive-sm: clamp(0.5rem, 1.5vw, 0.75rem);
+    --spacing-responsive-md: clamp(0.75rem, 2vw, 1rem);
+    --spacing-responsive-lg: clamp(1rem, 2.5vw, 1.5rem);
+    --spacing-responsive-xl: clamp(1.5rem, 3vw, 2rem);
+    
+    /* ===== COLORS ===== */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 40%;
+    --primary-foreground: 0 0% 100%;
+    
+    --primary-hover: 217 91% 35%;
+    
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 30% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 43 96% 56%;
+    --accent-foreground: 222 47% 11%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    --danger: 0 84% 60%;
+    --danger-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 40%;
+
+    --radius: 0.75rem;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 40%), hsl(217 91% 50%));
+    --gradient-success: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 55%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 96% 56%), hsl(38 92% 50%));
+    
+    --shadow-soft: 0 2px 8px -2px hsl(217 91% 40% / 0.1);
+    --shadow-medium: 0 4px 16px -4px hsl(217 91% 40% / 0.15);
+    --shadow-strong: 0 8px 24px -6px hsl(217 91% 40% / 0.2);
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --primary-hover: 217 91% 60%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 43 96% 56%;
+    --accent-foreground: 222 47% 11%;
+    
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    --danger: 0 84% 60%;
+    --danger-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 55%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 55%), hsl(217 91% 65%));
+    --gradient-success: linear-gradient(135deg, hsl(142 71% 45%), hsl(142 71% 55%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 96% 56%), hsl(38 92% 50%));
+    
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.4);
+    --shadow-strong: 0 8px 24px -6px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-size: var(--font-size-base);
+  }
+  
+  /* Prevent horizontal overflow globally */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+@layer utilities {
+  /* Fluid typography utility classes */
+  .text-fluid-xs { font-size: var(--font-size-xs); }
+  .text-fluid-sm { font-size: var(--font-size-sm); }
+  .text-fluid-base { font-size: var(--font-size-base); }
+  .text-fluid-lg { font-size: var(--font-size-lg); }
+  .text-fluid-xl { font-size: var(--font-size-xl); }
+  .text-fluid-2xl { font-size: var(--font-size-2xl); }
+  .text-fluid-3xl { font-size: var(--font-size-3xl); }
+  .text-fluid-4xl { font-size: var(--font-size-4xl); }
+  
+  /* Override standard Tailwind text-* classes to respect --font-size-min */
+  .text-xs { font-size: max(var(--font-size-min), 0.75rem) !important; }
+  .text-sm { font-size: max(var(--font-size-min), 0.875rem) !important; }
+  .text-base { font-size: max(var(--font-size-min), 1rem) !important; }
+  .text-lg { font-size: max(calc(var(--font-size-min) + 2px), 1.125rem) !important; }
+  .text-xl { font-size: max(calc(var(--font-size-min) + 4px), 1.25rem) !important; }
+  .text-2xl { font-size: max(calc(var(--font-size-min) + 8px), 1.5rem) !important; }
+  .text-3xl { font-size: max(calc(var(--font-size-min) + 14px), 1.875rem) !important; }
+  .text-4xl { font-size: max(calc(var(--font-size-min) + 20px), 2.25rem) !important; }
+  
+  /* Responsive spacing utilities */
+  .p-responsive { padding: var(--spacing-responsive-md); }
+  .px-responsive { padding-left: var(--spacing-responsive-md); padding-right: var(--spacing-responsive-md); }
+  .py-responsive { padding-top: var(--spacing-responsive-md); padding-bottom: var(--spacing-responsive-md); }
+  .gap-responsive { gap: var(--spacing-responsive-md); }
+  
+  /* Container that never causes horizontal scroll */
+  .no-overflow-x {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Responsive container with fluid padding */
+  .container-responsive {
+    width: 100%;
+    max-width: 100%;
+    padding-left: var(--spacing-responsive-md);
+    padding-right: var(--spacing-responsive-md);
+  }
+}
+
+/* ===== REDUCE MOTION ACCESSIBILITY ===== */
+
+/* Respect system preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Respect user preference via toggle */
+.reduce-motion,
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  transition-delay: 0ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Disable Tailwind animate classes */
+.reduce-motion .animate-spin,
+.reduce-motion .animate-ping,
+.reduce-motion .animate-pulse,
+.reduce-motion .animate-bounce,
+.reduce-motion .animate-fade-in,
+.reduce-motion .animate-fade-out,
+.reduce-motion .animate-scale-in,
+.reduce-motion .animate-scale-out,
+.reduce-motion .animate-slide-in-right,
+.reduce-motion .animate-slide-out-right,
+.reduce-motion .animate-enter,
+.reduce-motion .animate-exit,
+.reduce-motion .animate-accordion-down,
+.reduce-motion .animate-accordion-up,
+.reduce-motion .animate-in,
+.reduce-motion .animate-out {
+  animation: none !important;
+}
+
+/* Disable transforms on hover */
+.reduce-motion .hover\:scale-105:hover,
+.reduce-motion .hover\:scale-110:hover,
+.reduce-motion .hover\:-translate-y-1:hover {
+  transform: none !important;
+}
+
+/* Disable Radix UI animations */
+.reduce-motion [data-state="open"],
+.reduce-motion [data-state="closed"],
+.reduce-motion [data-state="active"],
+.reduce-motion [data-state="inactive"] {
+  animation: none !important;
+}
+
+/* Sonner toasts */
+.reduce-motion [data-sonner-toast],
+.reduce-motion [role="status"],
+.reduce-motion [role="alert"] {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Disable all transition classes */
+.reduce-motion .transition,
+.reduce-motion .transition-all,
+.reduce-motion .transition-colors,
+.reduce-motion .transition-opacity,
+.reduce-motion .transition-shadow,
+.reduce-motion .transition-transform {
+  transition: none !important;
+}
