@@ -1,0 +1,46 @@
+project_id = "hiktqeevzobhkbqswvev"
+
+[functions.analyze-cvm-data]
+verify_jwt = false
+
+[functions.cleanup-users]
+verify_jwt = false
+
+[functions.test-anbima-connection]
+verify_jwt = false
+
+[functions.sync-anbima-data]
+verify_jwt = false
+
+[functions.calculate-investment-risk]
+verify_jwt = false
+
+[functions.precalculate-anbima-risks]
+verify_jwt = false
+
+[functions.precalculate-cvm-risks]
+verify_jwt = false
+
+[functions.sync-cvm-data]
+verify_jwt = false
+
+[functions.sync-brapi-quotes]
+verify_jwt = false
+
+[functions.calculate-brapi-risk]
+verify_jwt = false
+
+[functions.sync-brapi-rates]
+verify_jwt = false
+
+[functions.transform-to-unified]
+verify_jwt = false
+
+[functions.test-brapi-modules]
+verify_jwt = false
+
+[functions.asset-quality-check]
+verify_jwt = false
+
+[functions.sync-bdr-names]
+verify_jwt = false
